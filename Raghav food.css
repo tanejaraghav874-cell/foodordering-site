@@ -1,0 +1,46 @@
+/* styles.css — shared site styles */
+:root{
+--accent:#ff6b35;
+--muted:#6b7280;
+--bg:#f7f7fb;
+--card:#ffffff;
+--shadow:0 6px 18px rgba(15,23,42,0.08);
+--max-width:1100px;
+font-family: Inter, system-ui, Arial, sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#111}
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:#fff;box-shadow:var(--shadow)}
+header h1{color:var(--accent);margin:0;font-size:20px}
+.header-links{display:flex;gap:12px}
+.header-links a{color:var(--muted);text-decoration:none;font-size:14px}
+.header-links a:hover{color:var(--accent)}
+.container{max-width:var(--max-width);margin:28px auto;padding:0 18px}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.card{background:var(--card);padding:14px;border-radius:10px;border:1px solid #eee;text-align:center}
+.card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+.card h3{margin:10px 0 6px 0;font-size:18px}
+.card p.desc{color:var(--muted);font-size:14px;margin:0 0 8px}
+.card p.price{font-weight:700;margin:6px 0}
+.btn{background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;border:0;cursor:pointer}
+.link{display:inline-block;margin-top:12px;text-decoration:none;color:var(--muted);font-size:14px}
+footer{max-width:var(--max-width);margin:24px auto;text-align:center;color:var(--muted);padding-bottom:40px}
+
+
+/* Order page */
+.wrap{max-width:900px;margin:20px auto;padding:20px}
+.card-large{background:var(--card);padding:16px;border-radius:10px;box-shadow:var(--shadow)}
+.line{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #eee}
+.line img{width:92px;height:68px;object-fit:cover;border-radius:8px}
+.meta{flex:1}
+.qty-controls{display:flex;align-items:center;gap:8px}
+.small{color:var(--muted);font-size:13px}
+.remove-btn{background:#eee;border:0;padding:6px 8px;border-radius:8px;cursor:pointer}
+.checkout{background:linear-gradient(90deg,var(--accent),#ff8a5b);color:#fff;padding:12px;border:0;border-radius:10px;width:100%;margin-top:12px}
+
+
+/* Responsive tweaks */
+@media (max-width:700px){
+.line{flex-direction:column;align-items:flex-start}
+.line img{width:100%;height:180px}
+}

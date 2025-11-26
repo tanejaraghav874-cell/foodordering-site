@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TastyBite | Food Ordering</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { line-height: 1.6; background: #fff; color: #333; }
+
+    /* Navbar */
+    header {
+      background:black;
+      color: #fff;
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+    }
+    header h1 { font-size: 1.8rem; }
+
+    nav ul { list-style: none; display: flex; }
+    nav ul li { position: relative; margin-left: 20px; }
+    nav ul li a {
+      text-decoration: none; color: #fff; font-weight: bold; padding: 8px;
+      transition: background 0.3s;
+    }
+    nav ul li a:hover { background: grey; border-radius: 5px; }
+
+    /* Dropdown */
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: grey;
+      min-width: 150px;
+      border-radius: 5px;
+      z-index: 999;
+    }
+    nav ul li:hover ul { display: block; }
+    nav ul li ul li {
+      margin: 0;
+      display: block;
+    }
+    nav ul li ul li a {
+      display: block;
+      padding: 10px;
+      color: #fff;
+    }
+    nav ul li ul li a:hover {
+      background: #36454F;
+    }
+
+    .order-btn {
+      background: #fff; color: #ff4d4d; padding: 8px 16px;
+      border-radius: 20px; text-decoration: none; font-weight: bold;
+    }
+
+    /* Hero */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1716816211590-c15a328a5ff0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=823') no-repeat center/cover;
+      height: 90vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; color: #fff; padding: 0 5%;
+    }
+    .hero h2 { font-size: 3rem; margin-bottom: 15px; }
+    .hero p { font-size: 1.2rem; margin-bottom: 20px; }
+    .hero a {
+      background: #cc0000; padding: 10px 20px; border-radius: 25px;
+      color: #fff; text-decoration: none; font-weight: bold; transition: background 0.3s;
+    }
+    .hero a:hover { background: #ff4d4d; }
+
+    /* Menu */
+    .menu { padding: 4rem 5%; text-align: center; }
+    .menu h2 { margin-bottom: 2rem; font-size: 2rem; color: #ff4d4d; }
+    .menu-cards {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff; border-radius: 10px; overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
+    .card h3 { margin: 15px 0; font-size: 1.2rem; }
+    .card p { padding: 0 10px 15px; font-size: 0.9rem; }
+    .card a {
+      display: inline-block; margin-bottom: 15px;
+      background: #ff4d4d; color: #fff; text-decoration: none;
+      padding: 8px 15px; border-radius: 20px; font-weight: bold;
+      transition: background 0.3s;
+    }
+    .card a:hover { background: #cc0000; }
+
+    /* Testimonials */
+    .testimonials { background: #f8f8f8; padding: 4rem 5%; text-align: center; }
+    .testimonials h2 { margin-bottom: 2rem; color: #ff4d4d; }
+    .testimonial { max-width: 600px; margin: auto; font-style: italic; color: #555; }
+
+    /* Footer */
+    footer { background: #333; color: #fff; text-align: center; padding: 1.5rem 5%; }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <h1>Angithi Foods</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li>
+          <a href="#menu">Menu ▼</a>
+          <ul>
+            <li><a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\Raghav pizza.html">Malai Chaap</a></li>
+            <li><a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\Tandoori chaap.html">Tandoori Chaap</a></li>
+            <li><a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\Rumali Roti.html">Rumali Roti</a></li>
+            <li><a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\Paneer Tikka.html">Paneer Tikka</a></li>
+            <li><a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\Dal Makhani.html">Angithi Spc. Dal Makhani</a></li>
+            <li><a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\hakkanoodles.html">Hakka Noodles</a></li>
+            <li><a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\Friedrice.html">Fried Rice</a></li>
+            <li><a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\thali.html">Angithi Thali</a></li>
+            <li><a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\spring roll.html">Spring roll</a></li>
+            <li><a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\gulab jamun.html">Gulab Jamun</a></li>
+          </ul>
+        </li>
+        <li><a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Review.html">Reviews</a></li>
+        <li><a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Raghav index.html" class="order-btn">Order Now</a>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div>
+      <h2>Delicious Food, Delivered Fast</h2>
+      <p>Order your favorite meals and get them delivered hot & fresh!</p>
+      <a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Raghav index.html">See Menu</a>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section class="menu" id="menu">
+    <h2>Our Specials</h2>
+    <div class="menu-cards">
+      <div class="card">
+        <img src="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\Malai-chaap.jpg" alt="Malai Chaap">
+        <h3>Malai Chaap</h3>
+        <p>"Creamy, Dreamy, and Absolutely Delicious"</p>
+        <a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\Raghav pizza.html">View Details</a>
+      </div>
+      <div class="card">
+        <img src="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\tandoori-chaap.jpg" alt="Tandoori Chaap">
+        <h3>Tandoori Chaap</h3>
+        <p>"The perfect blend of spice and smoke in every bite."</p>
+        <a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\Tandoori chaap.html">View Details</a>
+      </div>
+      <div class="card">
+        <img src="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\RumaliRoti.jpg" alt="Rumali Roti">
+        <h3>Rumali Roti</h3>
+        <p>As light as a handkerchief, as rich as our curries.</p>
+        <a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\Rumali Roti.html">View Details</a>
+      </div>
+      <div class="card">
+        <img src="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\thali.jpg" alt="thali">
+        <h3>Angithi Thali</h3>
+        <p>Angithi Thali: A Taste of Home, Cooked with Fire and Soul.</p>
+        <a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\thali.html">View Details</a>
+      </div>
+      <div class="card">
+        <img src="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\DalMakhani.jpg" alt="Salad">
+        <h3>Angithi Spl. Dal Makhani</h3>
+        <p>The taste of Punjab in every bite.</p>
+        <a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\Dal Makhani.html">View Details</a>
+      </div>
+      <div class="card">
+        <img src="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\HakkaNoodles.jpg" alt="Noodles">
+        <h3>Hakka Noodles</h3>
+        <p>Spicy stir-fried noodles with vegetables.</p>
+        <a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\hakkanoodles.html">View Details</a>
+      </div>
+           <div class="card">
+        <img src="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\jamun.jpg" alt="Tacos">
+        <h3>Gulab Jamun</h3>
+        <p>The king of sweets, served with soul.</p>
+        <a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Items\gulab jamun.html">View Details</a>
+      </div>
+             </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonials">
+    <h2>What Our Customers Say</h2>
+    <p class="testimonial">"TastyBite has the best delivery service in town! The food is always fresh and hot. Highly recommend!" – Priya K.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p>&copy; 2025 TastyBite. All Rights Reserved.</p>
+    <p>Contact us: tastybite@example.com | +91 98765 43210</p>
+  </footer>
+</body>
+</html>

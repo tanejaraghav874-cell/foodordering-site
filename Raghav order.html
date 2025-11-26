@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order</title>
+<link rel="stylesheet" href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Raghav food.css">
+<style>
+/* Navbar */
+    header {
+      background:black;
+      color: #fff;
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+    }
+</style>
+</head>
+<body>
+<header>
+<h1><a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Raghav index.html" style="text-decoration:none;color:var(--accent)">Angithi Foods</a></h1>
+<div class="header-links">
+<a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Raghav index.html">Back to Menu</a>
+<a id="cartCount" style="display:none;background:var(--accent);color:#fff;padding:6px 8px;border-radius:8px;text-decoration:none">0</a>
+</div>
+</header>
+
+
+<div class="container wrap">
+<h2>Your Order</h2>
+<div class="card-large" id="cartArea">
+<!-- JS will inject cart items here -->
+</div>
+
+
+<button class="checkout" onclick="placeOrder()">Place Order</button>
+</div>
+
+
+<script src="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\cart.js"></script>
+<script>
+function render(){
+const cart = getCart();
+const el = document.getElementById('cartArea');
+if(cart.length===0){ el.innerHTML = '<p class="small">Your cart is empty. Go back to the <a href="C:\Users\RAGHAV\OneDrive\Desktop\raghav food\Raghav index.html">menu</a> </p>'; refreshCartBadge(); return }
+let html = '';
+let total = 0;
+cart.forEach(item => {
+const lineTotal = item.price * item.qty;
+total += lineTotal;
+html += `
+<div class="line">
+<img src="${item.image}" alt="${item.name}">
+<div class="meta">
+<div style="font-weight:700">${item.name}</div>
+<div class="small">₹${item.price} × ${item.qty} = ₹${lineTotal}</div>
+</div>
+<div class="qty-controls">
+<button class="remove-btn" onclick="changeQty('${item.id}', -1)">-</button>
+<div style="min-width:28px;text-align:center">${item.qty}</div>
+<button class="remove-btn" onclick="changeQty('${item.id}', 1)">+</button>
+<button class="remove-btn" onclick="removeItem('${item.id}')">Remove</button>
+</div>
+</div>
+`;
+});
+html += `<div style="padding-top:12px;font-weight:700;display:flex;justify-content:space-between">Total:<span>₹${total}</span></div>`;
+el.innerHTML = html;
+refreshCartBadge();
+}
+
+
+function changeQty(id, delta){
+const cart = getCart();
+const it = cart.find(i=>i.id===id); if(!it) return;
+it.qty = Math.max(1, it.qty + delta);
+saveCart(cart); render();
+}
+function removeItem(id){ removeFromCart(id); render(); }
+
+
+function placeOrder(){ const cart = getCart(); if(cart.length===0){ alert('Cart empty'); return };
+// Placeholder: replace with real order submission
+alert('Order placed! (demo)'); localStorage.removeItem('cart'); render();
+}
+
+
+document.addEventListener('DOMContentLoaded', render);
+</script>
+</body>
+</html>
